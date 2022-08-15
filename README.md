@@ -43,8 +43,8 @@ $ VAL_USER=username VAL_PASS=password python3 auth.py
 docker run \
   --rm \
   -it \
-  -e VAL_USER='physanus' \
-  -e VAL_PASS='9EW&jS#YR*64R1uU^0@Um@@Ka@K5' \
+  -e VAL_USER='username' \
+  -e VAL_PASS='password' \
   --entrypoint ash \
   -v "$(pwd):/app" \
   python:3-alpine \
