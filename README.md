@@ -29,7 +29,7 @@ This projects implements the changes on top of the authentication scheme provide
 
 # Prerequisites
 - You need to have 2fa **disabled** on your Riot Account ([click here](https://account.riotgames.com/#mfa-card) to do so).
-- You need wither python or docker installed on your system.
+- You need either python or docker installed on your system.
 
 # How to run
 ## Vanilla
