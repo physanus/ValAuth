@@ -27,6 +27,7 @@ def auth(username, password):
     result = scraper.post('https://auth.riotgames.com/api/v1/authorization', headers=headers, json=data)
     if result.status_code != 200:
         print('Error in request 1: ' + str(result.status_code))
+        scraper.close()
         exit(2)
 
     # Request 2 - Retrieve the access_token
@@ -38,6 +39,7 @@ def auth(username, password):
     result = scraper.put('https://auth.riotgames.com/api/v1/authorization', headers=headers, json=data)
     if result.status_code != 200:
         print('Error in request 1: ' + str(result.status_code))
+        scraper.close()
         exit(3)
 
     re_pattern = re.compile(
@@ -46,7 +48,10 @@ def auth(username, password):
         re_data = re_pattern.findall(json.loads(result.text)['response']['parameters']['uri'])[0]
     except KeyError:
         print('Error in request 1: ' + str(result.status_code))
+        scraper.close()
         exit(4)
+
+
     access_token = re_data[0]
     id_token = re_data[1]
     expires_in = re_data[2]
@@ -57,6 +62,7 @@ def auth(username, password):
     result = scraper.post('https://entitlements.auth.riotgames.com/api/token/v1', headers=headers)
     if result.status_code != 200:
         print('Error in request 1: ' + str(result.status_code))
+        scraper.close()
         exit(5)
 
     entitlements_token = json.loads(result.text)['entitlements_token']
@@ -67,10 +73,13 @@ def auth(username, password):
     result = scraper.post('https://auth.riotgames.com/userinfo', headers=headers)
     if result.status_code != 200:
         print('Error in request 1: ' + str(result.status_code))
-        exit()
+        scraper.close()
+        exit(6)
 
     user_id = json.loads(result.text)['sub']
     print(f'user_id={user_id}')
+
+    scraper.close()
 
 
 if __name__ == '__main__':
