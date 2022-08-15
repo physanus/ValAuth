@@ -1,5 +1,5 @@
 # ValAuth
-An auth provider for use in bash scripts
+A Riot Games / Valorant auth provider for use in shell scripts
 
 # Motivation
 So far, I only found [this](https://github.com/HeyM1ke/ValorantClientAPI/blob/master/Docs/RSO_AuthFlow.py) 
