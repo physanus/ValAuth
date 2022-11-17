@@ -1,6 +1,8 @@
 # ValAuth
 A Riot Games / Valorant auth provider for use in shell scripts
 
+**UPDATE:** Consider using https://github.com/floxay/python-riot-auth since ValAuth does not work anymore.
+
 # Motivation
 So far, I only found [this](https://github.com/HeyM1ke/ValorantClientAPI/blob/master/Docs/RSO_AuthFlow.py) 
 authentication wrapper that is capable of generating an `access_token`, `entitlements_token` and `user_id`. However, 
